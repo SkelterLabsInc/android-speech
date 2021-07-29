@@ -199,8 +199,10 @@ public class MainActivity extends AppCompatActivity
                   StreamingRecognizeRequest.newBuilder()
                       .setAudioContent(ByteString.copyFrom(bytes))
                       .build();
-              // STT 서버에 데이타를 전송한다.
-              sttStream.onNext(req);
+              if (isRunning) {
+                // STT 서버에 데이타를 전송한다.
+                sttStream.onNext(req);
+              }
             }
 
             // 마이크의 녹음을 중단한다.
@@ -216,17 +218,13 @@ public class MainActivity extends AppCompatActivity
 
   /** gRpc 통신을 종료하고, 마이크 입력을 중단한다. */
   public void stop() {
-    stopGrpc();
     stopAudioIn();
+    stopGrpc();
   }
 
   /** gRpc 통신을 종료한다. */
   private void stopGrpc() {
-    final ManagedChannel backup = channel;
-    channel = null;
-    if (null != backup) {
-      backup.shutdown();
-    }
+    sttStream.onCompleted();
   }
 
   /** 마이크로부터 오디오 입력을 중단한다. */
@@ -264,6 +262,7 @@ public class MainActivity extends AppCompatActivity
   @Override
   public void onCompleted() {
     Log.d(TAG, this.toString() + " completed");
-    stop();
+    // 이미 통신은 종료되었으므로 오디오만 종료함
+    stopAudioIn();
   }
 }
