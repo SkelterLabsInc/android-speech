@@ -1,10 +1,10 @@
-# AIQ.TALK STT Android Example
+# AIQ.STT Android Example
 
-This repository contains simple Android demo program to call a streaming speech-to-text request using AIQ.TALK STT service. For now, we only provide streaming example.
+This repository contains simple Android demo program to call a streaming speech-to-text request using AIQ.STT service. For now, we only provide streaming example.
 
 ## Note
 
-To use AIQ.TALK STT request, you should enter API key in [MainActivity.java](app/src/main/java/aiq/speech/example/android/MainActivity.java). If you don't have API key, get one from [AIQ Console](https://aiq.skelterlabs.com/console).
+To use AIQ.STT request, you should enter API key in [MainActivity.java](app/src/main/java/aiq/speech/example/android/MainActivity.java). If you don't have API key, get one from [AIQ Console](https://aiq.skelterlabs.com/console).
 
 ```java
     /**

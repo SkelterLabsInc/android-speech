@@ -1,3 +1,3 @@
-# Protobufs for AIQ.TALK STT
+# Protobufs for AIQ.STT
 
-AIQ.TALK STT APIs are identical to Google's. So these proto files are based on Google's speech proto files from [here](https://github.com/GoogleCloudPlatform/android-docs-samples/tree/master/speech/Speech/app/src/main/proto/google).
+AIQ.STT APIs are based on Google's. So these proto files are based on Google's speech proto files from [here](https://github.com/GoogleCloudPlatform/android-docs-samples/tree/master/speech/Speech/app/src/main/proto/google).
