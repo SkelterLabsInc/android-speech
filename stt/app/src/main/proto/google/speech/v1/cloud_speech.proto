@@ -180,6 +180,10 @@ message RecognitionConfig {
     // is replaced with a single byte containing the block length. Only Speex
     // wideband is supported. `sample_rate_hertz` must be 16000.
     SPEEX_WITH_HEADER_BYTE = 7;
+
+    // SkelterLabs-specific.
+    ALAW = 101;
+    MP3 = 200;
   }
 
   // *Required* Encoding of audio data sent in all `RecognitionAudio` messages.
