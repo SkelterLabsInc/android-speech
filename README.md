@@ -1,3 +1,3 @@
-# AIQ.TALK Speech Android Example
+# AIQ.STT Android Example
 
-The AIQ.TALK Speech (STT/TTS) API examples for Android.
+The AIQ.STT API examples for Android.
