@@ -173,6 +173,8 @@ class MainActivity : AppCompatActivity(), StreamObserver<StreamingRecognizeRespo
           .apply { encoding = RecognitionConfig.AudioEncoding.LINEAR16 }
           .apply { sampleRateHertz = 16_000 }
           .apply { languageCode = "ko-KR" }
+          .apply { speechContextId "<your_speech_context_id>" }
+          .apply { substitutionRuleId = "<your_substitution_rule_id>" }
           .build()
       }
       .build()
