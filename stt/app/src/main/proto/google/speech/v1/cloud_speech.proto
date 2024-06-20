@@ -225,6 +225,12 @@ message RecognitionConfig {
   // `false`, no word-level time offset information is returned. The default is
   // `false`.
   bool enable_word_time_offsets = 8;
+
+  // ID of speech context to apply. Skelterlabs specific.
+  string speech_context_id = 101;
+
+  // ID of substitution rule to apply. Skelterlabs specific.
+  string substitution_rule_id = 102;
 }
 
 // Provides "hints" to the speech recognizer to favor specific words and phrases
