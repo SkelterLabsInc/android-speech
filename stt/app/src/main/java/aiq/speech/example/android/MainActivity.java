@@ -39,18 +39,25 @@ import javax.net.ssl.SSLContext;
 public class MainActivity extends AppCompatActivity
     implements StreamObserver<StreamingRecognizeResponse> {
   private final int REQUEST_RECORD_AUDIO = 300;
+
   /** STT 서버의 호스트명. SaaS의 경우 aiq.skelterlabs.com을 사용하지만, 자체 구축(on-premise)의 경우 해당 호스트명을 사용한다. */
   private static final String HOSTNAME = "aiq.skelterlabs.com";
+
   /** STT 서버 접속을 위한 포트 번호 */
   private static final int PORT = 443;
+
   /** STT 사용을 위한 API Key. STT 봇 프로젝트 설정에 사용한 값을 사용해야 한다. */
   private static final String API_KEY = "<<Your API Key>>";
+
   /** 현재 인식 중인지 여부 */
   private boolean isRunning = false;
+
   /** gRpc 통신 채널 */
   private ManagedChannel channel = null;
+
   /** gRpc 비동기 통신 방식에서 수신을 담당하는 객체 */
   private StreamObserver<StreamingRecognizeRequest> sttStream = null;
+
   /** 안드로이드에서 로그 출력을 위한 태그 */
   private static final String TAG = "STT-client";
 
@@ -147,6 +154,8 @@ public class MainActivity extends AppCompatActivity
                     .setEncoding(LINEAR16)
                     .setSampleRateHertz(16_000)
                     .setLanguageCode("ko-KR")
+                    .setSpeechContextId("")
+                    .setSubstitutionRuleId("")
                     .build())
             .build();
     // 데이타를 전송한다.
@@ -156,6 +165,7 @@ public class MainActivity extends AppCompatActivity
             .build());
     sttStream = stream;
   }
+
   /** 안드로이드의 마이크로부터 mono 16KHz 16bit 샘플링 음원을 읽을 수 있도록 한다. */
   private void startAudioIn() {
     isRunning = false;
